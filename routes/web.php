@@ -23,3 +23,7 @@ Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('inicio', function () {
+    return view('inicio');
+})->name('inicio');
