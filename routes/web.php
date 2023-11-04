@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\SubscripcionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,7 @@ Route::get('/paymentMethod', [PagoController::class, 'index'])
     ->name('paymentMethod');
 
 
+//Subscripciones
+Route::get('/subscripcion', [SubscripcionController::class, 'index'])
+    ->middleware('auth')
+    ->name('subscripcion');
