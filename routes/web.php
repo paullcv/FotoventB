@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
-        ->group(function () {
-Route::get('/dashboard', function () { 
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])
+    ->group(function () {
+        Route::get('/dashboard', function () {
+            return view('inicio');
+        })->name('dashboard');
+    });
 
-Route::get('inicio', function () {
+Route::get('/inicio', function () {
     return view('inicio');
 })->name('inicio');
+
+
+//Metodos de Pago
+Route::get('/paymentMethod', [PagoController::class, 'index'])
+    ->middleware('auth')
+    ->name('paymentMethod');
+
+

@@ -7,8 +7,23 @@
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     <script src="{{ asset('js/init-alpine.js') }}"></script>
+
+       <!-- Fonts -->
+       <link rel="preconnect" href="https://fonts.bunny.net">
+       <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+       {{-- Font Awesome --}}
+       <script src="https://kit.fontawesome.com/d68e27db16.js" crossorigin="anonymous"></script>
+    
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles
+
+        @stack('css')
 </head>
 
 <body>
@@ -68,6 +83,10 @@
             </main>
         </div>
     </div>
+    @stack('modals')
+
+    @livewireScripts
+    @stack('js')
 </body>
 
 </html>
