@@ -33,7 +33,15 @@ class Perfil extends Component
     private function updatePhoto($attribute, $photo)
     {
         try {
-            $path = $photo->storeAs('perfil', auth()->user()->id . '_' . $attribute . '.' . $photo->getClientOriginalExtension(), 'public');
+            $userId = auth()->user()->id;
+            $folderName = 'perfil/' . $userId;
+
+            // Obtener el número del atributo (1, 2, 3)
+            $attributeNumber = substr($attribute, -1);
+
+            $fileName = $attributeNumber . '.' . $photo->getClientOriginalExtension();
+
+            $path = $photo->storeAs($folderName, $fileName, 'public');
 
             if (auth()->user()->$attribute) {
                 Storage::disk('public')->delete(auth()->user()->$attribute);
@@ -42,7 +50,6 @@ class Perfil extends Component
             auth()->user()->$attribute = $path;
             auth()->user()->save();
         } catch (\Exception $e) {
-            // Manejo de errores (puedes personalizar según tus necesidades)
             $this->addError($attribute, 'Error al procesar la imagen.');
         }
     }
