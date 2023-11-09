@@ -10,42 +10,49 @@ class Perfil extends Component
 {
     use WithFileUploads;
 
-    public $photo;
+    public $photo_path1;
+    public $photo_path2;
+    public $photo_path3;
 
     protected $rules = [
-        'photo' => 'image|max:2048', // Ajusta el tamaño máximo según tus necesidades
+        'photo_path1' => 'image|max:2048',
+        'photo_path2' => 'image|max:2048',
+        'photo_path3' => 'image|max:2048',
     ];
 
-
-    public function updateProfilePhoto()
+    public function updateProfilePhoto($attribute)
     {
-        $this->validate();
+        $this->validateOnly($attribute);
 
-        if ($this->photo) {
-            $path = $this->photo->storeAs('perfil', auth()->user()->id . '.' . $this->photo->getClientOriginalExtension(), 'public');
-
-            // Elimina la foto antigua si existe
-            if (auth()->user()->photo_path1) {
-                Storage::disk('public')->delete(auth()->user()->photo_path1);
-            }
-
-            // Actualiza el atributo photo_path1 en el modelo User y guarda el modelo
-            auth()->user()->photo_path1 = $path;
-            auth()->user()->save();
+        if ($this->$attribute) {
+            $this->updatePhoto($attribute, $this->$attribute);
+            $this->reset($attribute);
         }
-
-        $this->reset('photo'); // Limpia el campo de la foto después de procesarla
     }
 
-    public function deleteProfilePhoto()
+    private function updatePhoto($attribute, $photo)
     {
-        // Verifica si hay una foto de perfil actual
-        if (auth()->user()->photo_path1) {
-            // Elimina la foto antigua
-            Storage::disk('public')->delete(auth()->user()->photo_path1);
-    
-            // Actualiza el atributo photo_path1 en el modelo User y guarda el modelo
-            auth()->user()->photo_path1 = null;
+        try {
+            $path = $photo->storeAs('perfil', auth()->user()->id . '_' . $attribute . '.' . $photo->getClientOriginalExtension(), 'public');
+
+            if (auth()->user()->$attribute) {
+                Storage::disk('public')->delete(auth()->user()->$attribute);
+            }
+
+            auth()->user()->$attribute = $path;
+            auth()->user()->save();
+        } catch (\Exception $e) {
+            // Manejo de errores (puedes personalizar según tus necesidades)
+            $this->addError($attribute, 'Error al procesar la imagen.');
+        }
+    }
+
+    public function deleteProfilePhoto($attribute)
+    {
+        if (auth()->user()->$attribute) {
+            Storage::disk('public')->delete(auth()->user()->$attribute);
+
+            auth()->user()->$attribute = null;
             auth()->user()->save();
         }
     }
@@ -54,6 +61,4 @@ class Perfil extends Component
     {
         return view('livewire.user.perfil');
     }
-
-    
 }
