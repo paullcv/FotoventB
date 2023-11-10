@@ -24,7 +24,7 @@
         <footer class="px-8 py-6 bg-gray-50 border-t border-gray-200">
             <div class="flex justify-end">
                 <x-button id="card-button" data-secret="{{ $intent->client_secret }}">
-                    Update Payment Method
+                    Agregar Metodo de Pago
                 </x-button>
             </div>
 
@@ -111,11 +111,12 @@
      </section>
  @endif
 
-    {{-- @push('js') --}}
+    @push('js')
         <script src="https://js.stripe.com/v3/"></script>
 
         <script>
             const stripe = Stripe("{{ env('STRIPE_KEY') }}");
+            console.log("valor stripe");
             const elements = stripe.elements();
             const cardElement = elements.create('card');
 
@@ -171,5 +172,5 @@
                 }
             });
         </script>
-    {{-- @endpush --}}
+    @endpush
 </div>
