@@ -1,19 +1,16 @@
-<div class="py-4 text-gray-500 dark:text-gray-400 flex flex-col h-screen">
+<div class="py-4 text-gray-500 dark:text-gray-400 flex flex-col h-screen bg-cyan-950">
     <div class="flex-grow">
-        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+        {{-- <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
             Windmill
+        </a> --}}
+
+        <a href="#" class="flex justify-center items-center">
+            <img class="ml-2 h-40 w-40 object-contain" src="{{ asset('img/logofotovent.png') }}" alt="Logo">
         </a>
+        
         <ul class="mt-6">
             <li class="relative px-6 py-3">
-                <!-- Active items have the snippet below -->
-                <!-- <span
-        class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-        aria-hidden="true"
-      ></span> -->
-
-                <!-- Add this classes to an active anchor (a tag) -->
-                <!-- text-gray-800 dark:text-gray-100 -->
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold  text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="{{ route('dashboard') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,7 +24,7 @@
         </ul>
         <ul>
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="../forms.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,7 +36,7 @@
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="{{ route('paymentMethod') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,7 +48,7 @@
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="{{ route('subscripcion') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,7 +59,7 @@
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="../buttons.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +71,7 @@
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="../modals.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -86,7 +83,7 @@
                 </a>
             </li>
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="../tables.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,7 +95,7 @@
         </ul>
     </div>
 
-    <<div class="mt-auto px-6 mb-6">
+    <div class="mt-auto px-6 mb-6">
         <div class="flex flex-col mb-4">
             <div class="bg-white dark:bg-gray-800 rounded-lg p-2 shadow-md">
                 <p class="text-xs font-medium text-gray-500 dark:text-gray-400">¡Hola!</p>
@@ -109,7 +106,7 @@
      
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="block w-full px-4 py-2 text-sm font-medium leading-5 mb-2 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" style="margin-top: 10px;">
+            <button type="submit" class="block w-full px-4 py-2 text-sm font-medium leading-5 mb-2 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-700 hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple" style="margin-top: 10px;">
                 Cerrar Sesión
             </button>
         </form>
