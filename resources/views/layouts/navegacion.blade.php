@@ -1,11 +1,7 @@
 <div class="py-4 text-gray-500 dark:text-gray-400 flex flex-col h-screen bg-cyan-950">
     <div class="flex-grow">
-        {{-- <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-            Windmill
-        </a> --}}
-
-        <a href="#" class="flex justify-center items-center">
-            <img class="ml-2 h-40 w-40 object-contain" src="{{ asset('img/logofotovent.png') }}" alt="Logo">
+        <a  href="{{ route('dashboard') }}" class="flex justify-center items-center">
+            <img class="h-40 w-40 object-contain" src="{{ asset('img/logofotovent.png') }}" alt="Logo">
         </a>
         
         <ul class="mt-6">
@@ -25,7 +21,7 @@
         <ul>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
-                    href="../forms.html">
+                    href="{{ route('evento.index') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -58,6 +54,8 @@
                     <span class="ml-4">Suscribciones</span>
                 </a>
             </li>
+
+           
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="../buttons.html">
@@ -70,18 +68,39 @@
                     <span class="ml-4">Mis Fotos</span>
                 </a>
             </li>
+            
+
+            @if (auth()->user()->subscribedToPrice('price_1O8rF5Dh3Rgs6haXBpBaq63L', 'Fotovent'))
+            <li class="relative px-6 py-3">
+                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200" href="{{ route('presentacion.index') }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v1a1 1 0 001 1h4a1 1 0 001-1v-1"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15s-2-4-6-4H9c-4 0-6 4-6 4"></path>
+                        <path d="M3 21h18a2 2 0 002-2v-1H1v1a2 2 0 002 2z"></path>
+                    </svg>
+                    <span class="ml-4">Perfil Profesional</span>
+                </a>
+            </li>
+            @else
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
-                    href="../modals.html">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    href="{{ route('presentacion.index') }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v1a1 1 0 001 1h4a1 1 0 001-1v-1"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15s-2-4-6-4H9c-4 0-6 4-6 4"></path>
+                        <path d="M3 21h18a2 2 0 002-2v-1H1v1a2 2 0 002 2z"></path>
+                    </svg>
                         <path
                             d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
                         </path>
                     </svg>
                     <span class="ml-4">Perfil Profesional</span>
+                    <!-- Ícono de candado -->
+                    <i class="fas fa-lock ml-2"></i>
                 </a>
             </li>
+            @endif
+
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-blue-300 dark:hover:text-blue-200"
                     href="../tables.html">

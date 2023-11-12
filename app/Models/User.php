@@ -77,4 +77,9 @@ class User extends Authenticatable
             }
         }));
     }
+
+    //Relacion Uno a muchos (invertido) con Eventos
+    public function events(){
+        return $this->hasMany(Event::class);
+    }
 }

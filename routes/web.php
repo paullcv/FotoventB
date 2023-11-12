@@ -1,7 +1,14 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\SubscripcionController;
+use App\Http\Middleware\Fotografos;
+use App\Http\Middleware\Organizadores;
+use App\Http\Middleware\Subscripcion;
+use App\Livewire\Evento\Create;
+use App\Livewire\Evento\Show;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +48,27 @@ Route::get('/paymentMethod', [PagoController::class, 'index'])
 Route::get('/subscripcion', [SubscripcionController::class, 'index'])
     ->middleware('auth')
     ->name('subscripcion');
+
+
+//Eventos
+Route::get('/evento', [EventController::class, 'index'])
+    ->middleware('auth')
+    //->middleware(Subscripcion::class)
+    ->name('evento.index');
+
+Route::get('/eventoCreate', [EventController::class, 'vistaCreate'])
+    ->middleware('auth')
+    //->middleware(Subscripcion::class)
+    ->name('evento.create');
+
+Route::get('/eventoShow', [EventController::class, 'vistaEdit'])
+    ->middleware('auth')
+    //->middleware(Subscripcion::class)
+    ->name('evento.show');
+
+
+//Presentacion (Perfil Profesional del Fotografo)
+Route::get('/Presentacion', [PresentationController::class, 'index'])
+    ->middleware('auth')
+    ->middleware(Fotografos::class)
+    ->name('presentacion.index');

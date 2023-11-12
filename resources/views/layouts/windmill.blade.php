@@ -10,20 +10,23 @@
     {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     <script src="{{ asset('js/init-alpine.js') }}"></script>
 
-       <!-- Fonts -->
-       <link rel="preconnect" href="https://fonts.bunny.net">
-       <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-       {{-- Font Awesome --}}
-       <script src="https://kit.fontawesome.com/d68e27db16.js" crossorigin="anonymous"></script>
-    
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/d68e27db16.js" crossorigin="anonymous"></script>
 
-        <!-- Styles -->
-        @livewireStyles
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        @stack('css')
+    <!-- Styles -->
+    @livewireStyles
+
+    {{-- SweetAlert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @stack('css')
 </head>
 
 <body>
@@ -45,7 +48,7 @@
             x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
             @keydown.escape="closeSideMenu">
-            
+
             @include('layouts.navegacion')
 
         </aside>
