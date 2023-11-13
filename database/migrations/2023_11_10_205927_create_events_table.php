@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->enum('visibilidad', ['publico', 'privado'])->default('publico');
+            $table->string('imageQR')->nullable();
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users');
