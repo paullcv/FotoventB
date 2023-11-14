@@ -56,15 +56,15 @@ Route::get('/evento', [EventController::class, 'index'])
     //->middleware(Subscripcion::class)
     ->name('evento.index');
 
-Route::get('/eventoCreate', [EventController::class, 'vistaCreate'])
+Route::get('evento/eventoCreate', [EventController::class, 'vistaCreate'])
     ->middleware('auth')
     //->middleware(Subscripcion::class)
     ->name('evento.create');
 
-Route::get('/eventoShow', [EventController::class, 'vistaEdit'])
+Route::get('evento/eventoEdit/{id}', [EventController::class, 'vistaEdit'])
     ->middleware('auth')
     //->middleware(Subscripcion::class)
-    ->name('evento.show');
+    ->name('evento.edit');
 
 
 //Presentacion (Perfil Profesional del Fotografo)

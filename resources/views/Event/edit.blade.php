@@ -11,6 +11,6 @@
         </a>
     </div>
 
-    @livewire('evento.create')
+    @livewire('evento.edit', ['event' => $event])
 
 @endsection

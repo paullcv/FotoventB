@@ -14,8 +14,6 @@ class Show extends Component
         $this->events = auth()->user()->events;
     }
 
-
-
     public function render()
     {
         return view('livewire.evento.show');

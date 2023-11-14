@@ -25,24 +25,23 @@
                     </div>
                 </div>
 
+               
                 <div class="p-4 bg-gray-50 border-t border-gray-200">
                     <!-- Botones de Acción -->
                     <div class="flex justify-between items-center">
-                        <a href="{{ route('evento.show', $event->id) }}" class="bg-blue-500 text-white p-2 text-center hover:bg-blue-600 transition duration-300">Add Inivtados</a>
-                        <div class="flex space-x-2">
-                            <button class="text-gray-600 hover:text-blue-500 focus:outline-none">
-                                <!-- Icono de Editar -->
-                                <i class="fas fa-edit"></i> Editar
-                            </button>
-                            <button class="text-gray-600 hover:text-red-500 focus:outline-none">
-                                <!-- Icono de Eliminar -->
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </button>
-                            <button class="text-gray-600 hover:text-green-500 focus:outline-none">
-                                <!-- Icono de Fotógrafos -->
-                                <i class="fas fa-camera"></i> Fotógrafos
-                            </button>
-                        </div>
+                        <a class="bg-blue-500 text-white p-2 text-center hover:bg-blue-600 transition duration-300 block">Add Invitados</a>
+                        <a href="{{ route('evento.edit', $event->id) }}" class="text-gray-600 ml-2 hover:text-blue-500 focus:outline-none block">
+                            <!-- Icono de Editar -->
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-red-500 focus:outline-none block">
+                            <!-- Icono de Eliminar -->
+                            <i class="fas fa-trash-alt"></i> Eliminar
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-green-500 focus:outline-none block">
+                            <!-- Icono de Fotógrafos -->
+                            <i class="fas fa-camera"></i> Fotógrafos
+                        </a>
                     </div>
                 </div>
             </div>
