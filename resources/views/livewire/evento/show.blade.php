@@ -34,7 +34,7 @@
                             <!-- Icono de Editar -->
                             <i class="fas fa-edit"></i> Editar
                         </a>
-                        <a href="#" class="text-gray-600 hover:text-red-500 focus:outline-none block">
+                        <a href="#" wire:click="deleteEvent({{ $event->id }})" class="text-gray-600 hover:text-red-500 focus:outline-none block">
                             <!-- Icono de Eliminar -->
                             <i class="fas fa-trash-alt"></i> Eliminar
                         </a>
@@ -48,3 +48,6 @@
         @endforeach
     </div>
 </div>
+
+
+

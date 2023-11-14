@@ -5,6 +5,7 @@ namespace App\Livewire\Evento;
 use App\Models\Event;
 use Livewire\Component;
 
+
 class Edit extends Component
 {
     public $event;
@@ -51,7 +52,6 @@ class Edit extends Component
 
         session()->flash('message', 'Evento actualizado exitosamente.');
 
-        return redirect()->route('evento.index');
     }
 
     public function render()
