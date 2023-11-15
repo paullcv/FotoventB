@@ -16,5 +16,9 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
+    //Relacion uno a muchos inversa con Photos
+    public function photos(){
+        return $this->hasMany(Photo::class);
+    }
     
 }

@@ -5,15 +5,10 @@ namespace App\Livewire\Evento;
 use App\Models\Event;
 use Livewire\Component;
 
-use Livewire\WithFileUploads;
-use Livewire\WithPagination;
 
 class Show extends Component
 {   
     
-    use WithPagination;
-    use WithFileUploads;
-
     public $events;
     
     public function mount()

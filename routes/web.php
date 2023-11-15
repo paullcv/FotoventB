@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PresentationController;
@@ -66,6 +67,15 @@ Route::get('evento/eventoEdit/{id}', [EventController::class, 'vistaEdit'])
     //->middleware(Subscripcion::class)
     ->name('evento.edit');
 
+
+// Catalogo de Fotos
+Route::get('/catalogo', [CatalogoController::class, 'index'])
+    ->middleware('auth')
+    ->name('catalogo.index');
+
+Route::get('/catalogo/create', [CatalogoController::class, 'vistaCreate'])
+    ->middleware('auth')
+    ->name('catalogo.create');
 
 //Presentacion (Perfil Profesional del Fotografo)
 Route::get('/Presentacion', [PresentationController::class, 'index'])
