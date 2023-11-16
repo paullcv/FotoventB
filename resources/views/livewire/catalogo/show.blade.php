@@ -6,9 +6,9 @@
                     <div class="relative overflow-hidden">
                         <img src="{{ asset('storage/' . $photo->image) }}" alt="Photo" class="w-full h-72 object-cover transition-transform transform hover:scale-105 duration-300">
                         <div class="absolute bottom-2 left-2">
-                            <button class="text-white bg-blue-500 px-2 py-1 rounded-full hover:bg-blue-600 focus:outline-none transition duration-300">
+                            <a href="{{ route('catalogo.edit', $photo->id) }}" class="text-white bg-blue-500 px-2 py-1 rounded-full hover:bg-blue-600 focus:outline-none transition duration-300">
                                 Editar
-                            </button>
+                            </a>
                             <button wire:click="deletePhoto({{ $photo->id}})" class="text-white bg-red-500 px-2 py-1 rounded-full hover:bg-red-600 focus:outline-none transition duration-300 ml-2">
                                 Eliminar
                             </button>

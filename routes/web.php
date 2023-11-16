@@ -57,12 +57,12 @@ Route::get('/evento', [EventController::class, 'index'])
     //->middleware(Subscripcion::class)
     ->name('evento.index');
 
-Route::get('evento/eventoCreate', [EventController::class, 'vistaCreate'])
+Route::get('evento/Create', [EventController::class, 'vistaCreate'])
     ->middleware('auth')
     //->middleware(Subscripcion::class)
     ->name('evento.create');
 
-Route::get('evento/eventoEdit/{id}', [EventController::class, 'vistaEdit'])
+Route::get('evento/Edit/{id}', [EventController::class, 'vistaEdit'])
     ->middleware('auth')
     //->middleware(Subscripcion::class)
     ->name('evento.edit');
@@ -76,6 +76,10 @@ Route::get('/catalogo', [CatalogoController::class, 'index'])
 Route::get('/catalogo/create', [CatalogoController::class, 'vistaCreate'])
     ->middleware('auth')
     ->name('catalogo.create');
+
+Route::get('catalogo/edit/{id}', [CatalogoController::class, 'vistaEdit'])
+    ->middleware('auth')
+    ->name('catalogo.edit');
 
 //Presentacion (Perfil Profesional del Fotografo)
 Route::get('/Presentacion', [PresentationController::class, 'index'])
