@@ -11,9 +11,9 @@
                             {{ $userPhoto->price }} Bs
                         </div>
                         <div class="p-4">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 hover:bg-blue-600 transition duration-300 w-full">
+                            <a href="{{ route('compra.detalles', ['photo' => $userPhoto->id]) }}" class="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 hover:bg-blue-600 transition duration-300 w-full">
                                 Comprar
-                            </button>
+                            </a>
                         </div>
                     </div>
                 @endforeach

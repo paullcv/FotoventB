@@ -16,4 +16,8 @@ class CompraController extends Controller
 
         return view('compra.index', compact('userPhotos'));
     }
+
+    public function detalles(Photo $photo){
+        return view('compra.detail', compact('photo'));
+    }
 }

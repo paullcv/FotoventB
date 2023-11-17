@@ -84,9 +84,14 @@ Route::get('catalogo/edit/{id}', [CatalogoController::class, 'vistaEdit'])
 
 
 // Compra de Fotos
-Route::get('compra',[CompraController::class,'index'])
+Route::get('compra', [CompraController::class, 'index'])
     ->middleware('auth')
     ->name('compra.index');
+// Detalle de la Compra
+Route::get('compra/foto/{photo}', [CompraController::class, 'detalles'])
+    ->middleware('auth')
+    ->name('compra.detalles');
+
 
 
 //Presentacion (Perfil Profesional del Fotografo)
