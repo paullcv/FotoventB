@@ -86,4 +86,9 @@ class User extends Authenticatable
     public function photos(){
         return $this->hasMany(Photo::class);
     }
+
+    //Relacion Uno a muchos (invertido) con Compras
+    public function compras(){
+        return $this->hasMany(Compras::class);
+    }
 }

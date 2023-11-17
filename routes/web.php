@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\CompraController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PresentationController;
@@ -80,6 +81,13 @@ Route::get('/catalogo/create', [CatalogoController::class, 'vistaCreate'])
 Route::get('catalogo/edit/{id}', [CatalogoController::class, 'vistaEdit'])
     ->middleware('auth')
     ->name('catalogo.edit');
+
+
+// Compra de Fotos
+Route::get('compra',[CompraController::class,'index'])
+    ->middleware('auth')
+    ->name('compra.index');
+
 
 //Presentacion (Perfil Profesional del Fotografo)
 Route::get('/Presentacion', [PresentationController::class, 'index'])
