@@ -5,9 +5,9 @@
                 @foreach ($userPhotos as $userPhoto)
                     <div class="bg-white rounded shadow-lg overflow-hidden relative hover:shadow-xl transition duration-300">
                         <div class="h-56 md:h-64 lg:h-72 xl:h-96 overflow-hidden">
-                            <img src="{{ asset('storage/' . $userPhoto->image) }}" alt="Photo" class="w-full h-full object-cover transition-transform transform hover:scale-105">
+                            <img src="{{ asset('storage/' . $userPhoto->image) }}" alt="Photo" class="w-full h-full object-cover transition-transform transform hover:scale-105 blur-sm">
                         </div>
-                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                             {{ $userPhoto->price }} Bs
                         </div>
                         <div class="p-4">

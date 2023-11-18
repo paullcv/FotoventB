@@ -4,7 +4,7 @@
             @foreach($photos as $photo)
                 <div class="border rounded-lg overflow-hidden shadow-md bg-white relative">
                     <div class="relative overflow-hidden">
-                        <img src="{{ asset('storage/' . $photo->image) }}" alt="Photo" class="w-full h-72 object-cover transition-transform transform hover:scale-105 duration-300">
+                        <img src="{{ asset('storage/' . $photo->image) }}" alt="Photo" class="w-full h-72 object-cover transition-transform transform hover:scale-105 duration-300 blur-sm">
                         <div class="absolute bottom-2 left-2">
                             <a href="{{ route('catalogo.edit', $photo->id) }}" class="text-white bg-blue-500 px-2 py-1 rounded-full hover:bg-blue-600 focus:outline-none transition duration-300">
                                 Editar
