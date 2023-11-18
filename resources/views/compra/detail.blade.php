@@ -28,7 +28,7 @@
                 
             </div>
 
-            <div class="col-span-5">
+            <div class="col-span-4">
                 @livewire('compra.pay-photo', ['photo' => $photo])
             </div>
         </div>
