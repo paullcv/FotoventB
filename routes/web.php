@@ -3,6 +3,7 @@
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\GraciasController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\SubscripcionController;
@@ -99,3 +100,7 @@ Route::get('/Presentacion', [PresentationController::class, 'index'])
     ->middleware('auth')
     ->middleware(Fotografos::class)
     ->name('presentacion.index');
+
+
+//Pagina de Gracias
+Route::get('/Compra/gracias', [GraciasController::class,'gracias'])->name('gracias');
