@@ -91,4 +91,9 @@ class User extends Authenticatable
     public function compras(){
         return $this->hasMany(Compras::class);
     }
+
+    //Relacion uno a muchos (invertido) con Coincidencia
+    public function coincidencias(){
+        return $this->hasMany(Coincidencia::class);
+    }
 }
