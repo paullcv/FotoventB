@@ -23,6 +23,8 @@
     <!-- Styles -->
     @livewireStyles
 
+    @livewireScripts
+
     {{-- SweetAlert2 --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -88,7 +90,7 @@
     </div>
     @stack('modals')
 
-    @livewireScripts
+   
     @stack('js')
 </body>
 

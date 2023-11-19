@@ -14,11 +14,11 @@
                         <img class="w-full h-auto object-contain blur-sm " src="{{ asset('storage/' . $photo->image) }}" alt="">
                         
                         <div class="absolute bottom-0 left-0 w-full bg-white bg-opacity-80 p-4">
-                            <h1 class="text-lg text-gray-500 font-semibold">
+                            <h1 class="text-lg text-center text-gray-500 font-semibold">
                                 {{ $photo->event->nombre }}
                             </h1>
                     
-                            <h1 class="text-lg text-gray-500 font-semibold">
+                            <h1 class="text-lg text-center text-gray-500 font-semibold">
                                 {{ $photo->price }} Bs
                             </h1>
                         </div>
