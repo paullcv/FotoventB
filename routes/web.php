@@ -53,7 +53,7 @@ Route::get('/subscripcion', [SubscripcionController::class, 'index'])
     ->name('subscripcion');
 
 
-//Eventos
+//Eventos CRUD
 Route::get('/evento', [EventController::class, 'index'])
     ->middleware('auth')
     //->middleware(Subscripcion::class)
@@ -104,3 +104,6 @@ Route::get('/Presentacion', [PresentationController::class, 'index'])
 
 //Pagina de Gracias
 Route::get('/Compra/gracias', [GraciasController::class,'gracias'])->name('gracias');
+
+
+//
