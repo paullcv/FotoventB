@@ -9,10 +9,14 @@ class Coincidencia extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image','user_id'];
+    protected $fillable = ['image','user_id','photo_id'];
 
     //Realcion uno a muchos con User
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function photo(){
+        return $this->belongsTo(Photo::class);
     }
 }

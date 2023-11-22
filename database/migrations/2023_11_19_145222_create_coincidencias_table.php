@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('coincidencias', function (Blueprint $table) {
             $table->id();
 
-            $table->string('image');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('photo_id');
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
 
             $table->timestamps();
         });

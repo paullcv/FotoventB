@@ -20,6 +20,8 @@ class Create extends Component
     public $message;
     public $imagepath;
 
+    public $photoId;
+
     protected $rules = [
         'image' => 'required|image|max:4096',
         'price' => 'required|numeric',
@@ -35,11 +37,13 @@ class Create extends Component
         $this->imagepath = $this->image->store('fotos', 'public');
 
         // Crea la foto en la base de datos
-        auth()->user()->photos()->create([
+        $photo = auth()->user()->photos()->create([
             'image' => $this->imagepath,
             'price' => $this->price,
             'event_id' => $this->eventId,
         ]);
+        // Almacena el id de la foto en una variable del componente
+        $this->photoId = $photo->id;
 
         // Mostrar un mensaje de éxito
         session()->flash('message', 'Foto subida exitosamente.');
@@ -62,28 +66,35 @@ class Create extends Component
 
     public function notificacionAparecesFoto($idusuarios)
     {
+        // Verifica si $this->photoId tiene un valor antes de utilizarlo
+    if (!$this->photoId) {
+        // Manejar el caso en que $this->photoId no tiene un valor
+        session()->flash('error', 'Error: ID de foto no disponible.');
+        return;
+    }
+
         // Elimina IDs duplicados
         $idusuariosUnicos = array_unique($idusuarios);
-    
+
         foreach ($idusuariosUnicos as $idusuario) {
             // Verifica si el id de usuario no es "unknown"
             if ($idusuario !== "unknown") {
                 // Verifica si ya existe una coincidencia con la misma ruta de imagen y usuario
-                $existeCoincidencia = Coincidencia::where('image', $this->imagepath)
+                $existeCoincidencia = Coincidencia::where('photo_id', $this->photoId)
                     ->where('user_id', $idusuario)
                     ->exists();
-    
+
                 // Si no existe, crea la coincidencia
                 if (!$existeCoincidencia) {
                     Coincidencia::create([
-                        'image' => $this->imagepath, 
                         'user_id' => $idusuario,
+                        'photo_id' => $this->photoId
                     ]);
                 }
             }
         }
     }
-    
+
 
 
     public function render()
