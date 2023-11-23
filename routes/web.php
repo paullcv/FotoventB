@@ -4,6 +4,7 @@ use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GraciasController;
+use App\Http\Controllers\MiVento;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\SubscripcionController;
@@ -32,7 +33,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])
     ->group(function () {
         Route::get('/dashboard', function () {
-            return view('inicio');
+            return view('Event.miseventos');
         })->name('dashboard');
     });
 
@@ -106,4 +107,5 @@ Route::get('/Presentacion', [PresentationController::class, 'index'])
 Route::get('/Compra/gracias', [GraciasController::class,'gracias'])->name('gracias');
 
 
-//
+//Vista mis eventos
+Route::get('/Eventos/miseventos', [MiVento::class,'index'])->name('miseventos.index');
