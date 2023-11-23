@@ -89,7 +89,7 @@ class User extends Authenticatable
 
     //Relacion Uno a muchos (invertido) con Compras
     public function compras(){
-        return $this->hasMany(Compras::class);
+        return $this->hasMany(Compra::class);
     }
 
     //Relacion uno a muchos (invertido) con Coincidencia

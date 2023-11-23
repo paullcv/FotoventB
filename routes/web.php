@@ -94,6 +94,11 @@ Route::get('compra/foto/{photo}', [CompraController::class, 'detalles'])
     ->middleware('auth')
     ->name('compra.detalles');
 
+// Compra de Fotos
+Route::get('compra/realizadas', [CompraController::class, 'adquisiciones'])
+    ->middleware('auth')
+    ->name('compra.realizadas');
+
 
 
 //Presentacion (Perfil Profesional del Fotografo)
@@ -108,4 +113,6 @@ Route::get('/Compra/gracias', [GraciasController::class,'gracias'])->name('graci
 
 
 //Vista mis eventos
-Route::get('/Eventos/miseventos', [MiVento::class,'index'])->name('miseventos.index');
+Route::get('/Eventos/miseventos', [MiVento::class,'index'])
+    ->middleware('auth')
+    ->name('miseventos.index');
