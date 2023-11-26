@@ -24,9 +24,7 @@ class Subscription extends Component
             return;
         }
 
-        //suscribirse
-        //auth()->user()->newSubscription('Cuso Suscripciones',$plan)->create($this->defaultPaymentMethod->id);
-
+      
         //capturar error
         try {
             if (auth()->user()->subscribed('Fotovent')) {

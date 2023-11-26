@@ -38,7 +38,7 @@
                             <!-- Icono de Eliminar -->
                             <i class="fas fa-trash-alt"></i> Eliminar
                         </a>
-                        <a href="#" class="text-gray-600 hover:text-green-500 focus:outline-none block">
+                        <a href="{{ route('evento.fotografos', $event->id) }}" class="text-gray-600 hover:text-green-500 focus:outline-none block">
                             <!-- Icono de Fotógrafos -->
                             <i class="fas fa-camera"></i> Fotógrafos
                         </a>

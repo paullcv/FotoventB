@@ -70,6 +70,17 @@ Route::get('evento/Edit/{id}', [EventController::class, 'vistaEdit'])
     //->middleware(Subscripcion::class)
     ->name('evento.edit');
 
+Route::get('evento/Fotografos/{id}', [EventController::class, 'fotografos'])
+    ->middleware('auth')
+    //->middleware(Subscripcion::class)
+    ->name('evento.fotografos');
+
+//Vista mis eventos
+Route::get('/Eventos/miseventos', [MiVento::class, 'index'])
+    ->middleware('auth')
+    ->name('miseventos.index');
+
+
 
 // Catalogo de Fotos
 Route::get('/catalogo', [CatalogoController::class, 'index'])
@@ -109,10 +120,4 @@ Route::get('/Presentacion', [PresentationController::class, 'index'])
 
 
 //Pagina de Gracias
-Route::get('/Compra/gracias', [GraciasController::class,'gracias'])->name('gracias');
-
-
-//Vista mis eventos
-Route::get('/Eventos/miseventos', [MiVento::class,'index'])
-    ->middleware('auth')
-    ->name('miseventos.index');
+Route::get('/Compra/gracias', [GraciasController::class, 'gracias'])->name('gracias');

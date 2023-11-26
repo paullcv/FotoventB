@@ -21,8 +21,10 @@ return new class extends Migration
             $table->enum('visibilidad', ['publico', 'privado'])->default('publico');
             $table->string('imageQR')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('fotografo_id')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('fotografo_id')->references('id')->on('users');
 
             $table->timestamps();
         });
