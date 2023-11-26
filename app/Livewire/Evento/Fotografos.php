@@ -3,15 +3,22 @@
 namespace App\Livewire\Evento;
 
 use App\Models\User;
+use App\Models\Event;
 use Livewire\Component;
 
 class Fotografos extends Component
 {
     public $fotografos;
     public $selectedFotografo;
+    public $event;
 
-    public function mount()
+    public function mount(Event $event)
     {
+        $this->event = $event;
+
+        // Verificar si ya hay un fotógrafo contratado y establecer la variable correspondiente
+        $this->selectedFotografo = $event->fotografo ?? null;
+
         // Obtener la lista de usuarios que cumplen con la condición de suscripción
         $this->fotografos = User::where('id', '!=', auth()->id())
             ->where(function ($query) {
@@ -21,10 +28,6 @@ class Fotografos extends Component
                 });
             })
             ->get();
-
-        // Verificar si ya hay un fotógrafo contratado y establecer la variable correspondiente
-        $event = auth()->user()->events->first();
-        $this->selectedFotografo = $event ? $event->fotografo : null;
     }
 
     public function contratarFotografo($fotografoId)
@@ -33,7 +36,7 @@ class Fotografos extends Component
         $fotografo = User::find($fotografoId);
 
         // Actualizar el fotógrafo contratado en la tabla de eventos
-        auth()->user()->events()->update(['fotografo_id' => $fotografo->id]);
+        $this->event->update(['fotografo_id' => $fotografo->id]);
 
         // Actualizar la variable para mostrar el fotógrafo contratado
         $this->selectedFotografo = $fotografo;

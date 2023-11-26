@@ -7,5 +7,5 @@
     </div>
     
 
-    @livewire('evento.fotografos', ['eventId' => $event])
+    @livewire('evento.fotografos', ['event' => $event])
 @endsection
